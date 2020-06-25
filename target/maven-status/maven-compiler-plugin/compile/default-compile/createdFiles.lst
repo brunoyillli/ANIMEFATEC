@@ -1,0 +1,5 @@
+com\javatechie\spring\orm\api\model\Person.class
+com\javatechie\spring\orm\api\SpringBootHibernateApplication.class
+com\javatechie\spring\orm\api\controller\PersonController.class
+com\javatechie\spring\orm\api\dao\PersonDao.class
+com\javatechie\spring\orm\api\config\DBConfig.class
