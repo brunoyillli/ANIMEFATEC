@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Gestão de Animes</title>
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+	<div class="container">
+		<h1>Novo Anime</h1>
+		<div th:if="${MSG}" class="alert alert-success" role="alert">
+			<p th:text="${MSG}" />
+		</div>
+		<form th:action="@{/new}" th:object="${animeAtual}" th:method="post">
+			<div class="form-group">
+				<label>Nome: </label> <input type="text" class="form-control"
+					th:field="*{name}" />
+			</div>
+			<div class="form-group">
+				<label>Score: </label> <input type="text" class="form-control"
+					th:field="*{score}" />
+			</div>
+			<div class="form-group">
+				<label>Sinopse: </label> <input type="text" class="form-control"
+					th:field="*{synopsis}" />
+			</div>
+			<div class="form-group">
+				<label>Nº episodios: </label> <input type="text" class="form-control"
+					th:field="*{episodes}" />
+			</div>
+			<div class="form-group">
+				<label>Status: </label> 
+				<select class="form-control" th:field="*{status}">
+					<option value="Em Andamento">Em Andamento</option>
+					<option value="Finalizado">Finalizado</option>
+					<option value="Pausado">Pausado</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label>Studio: </label> <input type="text" class="form-control"
+					th:field="*{studio}" />
+			</div>
+			<div class="form-group">
+					<label>Data lançamento:</label>
+					<input type="date" class="form-control" th:field="*{datalanc}"/>
+				</div>
+
+			<div class="form-group">
+				<button class="btn btn-primary" name="cmd" value="adicionar">Adicionar</button>
+			</div>
+
+		</form>
+
+	</div>
+
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

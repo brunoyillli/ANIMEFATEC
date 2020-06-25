@@ -24,4 +24,11 @@ public class AnimeDao {
 		repository.save(anime);
 	}
 	
+	public Anime get(Long id) {
+		return repository.findById(id).get();
+	}
+	
+	public void delete(Long id) {
+		repository.deleteById(id);
+	}
 }
