@@ -7,8 +7,13 @@
 	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 </head>
 <body>
+	<div class="jumbotron jumbotron-fluid">
+		<div class="container">
+			<h1 class="display-4">Novo Anime</h1>
+		</div>
+	</div>
 	<div class="container">
-		<h1>Novo Anime</h1>
+<!-- 		<h1>Novo Anime</h1> -->
 		<div th:if="${MSG}" class="alert alert-success" role="alert">
 			<p th:text="${MSG}" />
 		</div>

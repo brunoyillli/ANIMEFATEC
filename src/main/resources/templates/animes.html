@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Animes</title>
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<body>
+	<div class="jumbotron jumbotron-fluid">
+		<div class="container">
+			<h1 class="display-4">Lista de Animes</h1>
+		</div>
+	</div>
+	<div class="container">
+		<table th:if="${animeLista}" class="table table-striped table table-bordered">
+			<thead>
+				<tr class="table-primary">
+					<td>Nome</td>
+					<td>Score</td>
+					<td>Status</td>
+					<td>Episódios</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="anime : ${animeLista}">
+					<td th:text="${anime.name}">.</td>
+					<td th:text="${anime.score}">.</td>
+					<td th:text="${anime.status}">.</td>
+					<td th:text="${anime.episodes}">.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

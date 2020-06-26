@@ -2,6 +2,9 @@ package com.fatec.anime.api.dao;
 
 import com.fatec.anime.api.model.Anime;
 import com.fatec.anime.api.repository.AnimeRepository;
+
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +21,10 @@ public class AnimeDao {
 		
 		return anime;
 		
+	}
+	
+	public Set<Anime> findByStatus(String nome) {
+		return repository.findByStatus(nome);
 	}
 
 	public void salvar(Anime anime){
