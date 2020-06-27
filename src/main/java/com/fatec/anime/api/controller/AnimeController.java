@@ -26,12 +26,6 @@ public class AnimeController {
 	
 	private AnimeRepository animeRepository;
 
-	@RequestMapping("/")
-	public String index(){
-		return "index";
-	}
-
-	
 	@GetMapping(value = "/new")
 	public ModelAndView showNewAnimePage(Model model) {
 		ModelAndView mv = new ModelAndView("new_anime");
