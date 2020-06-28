@@ -7,16 +7,18 @@ import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedStoredProcedureQueries;
+import javax.persistence.NamedStoredProcedureQuery;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Setter
 @Getter
+@NamedStoredProcedureQueries(@NamedStoredProcedureQuery(name="firstProcedure",procedureName="top_list",resultClasses = Anime.class))
 public class Anime {
 	
 	@Id

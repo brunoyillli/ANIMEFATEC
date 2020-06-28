@@ -2,20 +2,18 @@ package com.fatec.anime.api.controller;
 
 import com.fatec.anime.api.dao.AnimeDao;
 import com.fatec.anime.api.model.Anime;
-import com.fatec.anime.api.repository.AnimeRepository;
 
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -24,7 +22,6 @@ public class AnimeController {
 	@Autowired
 	private AnimeDao service;
 	
-	private AnimeRepository animeRepository;
 
 	@GetMapping(value = "/new")
 	public ModelAndView showNewAnimePage(Model model) {
@@ -114,4 +111,16 @@ public class AnimeController {
 		}
 		return mv;
 	}
+	
+	@GetMapping(path = "/animes/top")
+	public ModelAndView TopListaAnime() {
+		ModelAndView mv = new ModelAndView("animes");
+		List<Anime> lista = service.getAnimesTop();
+		System.out.println(lista.size());
+		if(lista.size()>0) {
+			mv.addObject("animeLista", lista);
+		}
+		return mv;
+	}
+
 } 	
