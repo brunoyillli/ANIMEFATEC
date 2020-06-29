@@ -5,62 +5,67 @@
 <title>Gestão de Animes</title>
 <link rel="stylesheet"
 	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<!-- css local-->
+<link rel="stylesheet" type="text/css" href="../static/css/index.css"
+	th:href="@{/css/index.css}">
 </head>
 <body>
-	<div class="jumbotron jumbotron-fluid">
+	<div class="jumbotron jumbotron-fluid p-3 mb-2 bg-dark text-white">
 		<div class="container">
 			<h1 class="display-4">Editar Anime</h1>
 		</div>
 	</div>
-	<div class="container">
-<!-- 		<h1>Editar Anime</h1> -->
-		<div th:if="${MSG}" class="alert alert-success" role="alert">
-			<p th:text="${MSG}" />
-		</div>
-		<form th:action="@{/anime/edit}" th:object="${anime}" th:method="post">
-			<div class="form-group">
-				<label>ID : </label> <input type="text" class="form-control"
-					th:field="*{id}" readonly="readonly" />
+	<div class="modal-content">
+		<div class="container">
+			<!-- 		<h1>Editar Anime</h1> -->
+			<div th:if="${MSG}" class="alert alert-success" role="alert">
+				<p th:text="${MSG}" />
 			</div>
-			<div class="form-group">
-				<label>Nome: </label> <input type="text" class="form-control"
-					th:field="*{name}" />
-			</div>
-			<div class="form-group">
-				<label>Score: </label> <input type="text" class="form-control"
-					th:field="*{score}" />
-			</div>
-			<div class="form-group">
-				<label>Sinopse: </label> <input type="text" class="form-control"
-					th:field="*{synopsis}" />
-			</div>
-			<div class="form-group">
-				<label>Nº episodios: </label> <input type="text" class="form-control"
-					th:field="*{episodes}" />
-			</div>
-			<div class="form-group">
-				<label>Status: </label> 
-				<select class="form-control" th:field="*{status}">
-					<option value="Em Andamento">Em Andamento</option>
-					<option value="Finalizado">Finalizado</option>
-					<option value="Pausado">Pausado</option>
-				</select>
-			</div>
-			<div class="form-group">
-				<label>Studio: </label> <input type="text" class="form-control"
-					th:field="*{studio}" />
-			</div>
-			<div class="form-group">
-					<label>Data lançamento:</label>
-					<input type="date" class="form-control" th:field="*{datalanc}"/>
+			<form th:action="@{/anime/edit}" th:object="${anime}"
+				th:method="post">
+				<div class="form-group text-light">
+					<label>ID : </label> <input type="text" class="form-control"
+						th:field="*{id}" readonly="readonly" />
+				</div>
+				<div class="form-group text-light">
+					<label>Nome: </label> <input type="text" class="form-control"
+						th:field="*{name}" />
+				</div>
+				<div class="form-group text-light">
+					<label>Score: </label> <input type="text" class="form-control"
+						th:field="*{score}" />
+				</div>
+				<div class="form-group text-light">
+					<label>Sinopse: </label> <input type="text" class="form-control"
+						th:field="*{synopsis}" />
+				</div>
+				<div class="form-group text-light">
+					<label>Nº episodios: </label> <input type="text"
+						class="form-control" th:field="*{episodes}" />
+				</div>
+				<div class="form-group text-light">
+					<label>Status: </label> <select class="form-control"
+						th:field="*{status}">
+						<option value="Em Andamento">Em Andamento</option>
+						<option value="Finalizado">Finalizado</option>
+						<option value="Pausado">Pausado</option>
+					</select>
+				</div>
+				<div class="form-group text-light">
+					<label>Studio: </label> <input type="text" class="form-control"
+						th:field="*{studio}" />
+				</div>
+				<div class="form-group text-light">
+					<label>Data lançamento:</label> <input type="date"
+						class="form-control" th:field="*{datalanc}" />
 				</div>
 
-			<div class="form-group">
-				<button class="btn btn-primary" name="cmd" value="adicionar">Adicionar</button>
-			</div>
+				<div class="form-group text-light">
+					<button class="btn btn-danger" name="cmd" value="adicionar">Alterar</button>
+				</div>
 
-		</form>
-
+			</form>
+		</div>
 	</div>
 
 	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>

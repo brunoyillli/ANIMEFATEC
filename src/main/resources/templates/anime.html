@@ -5,20 +5,20 @@
 <title>Anime</title>
 <link rel="stylesheet"
 	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<!-- css local-->
+<link rel="stylesheet" type="text/css" href="../static/css/index.css"
+	th:href="@{/css/index.css}">
+</head>
 <body>
-	<div class="jumbotron jumbotron-fluid">
+	<div class="jumbotron jumbotron-fluid p-3 mb-2 bg-dark text-white">
 		<div class="container">
-			<h1 class="display-4"><span th:text="${anime.name}"></span></h1>
+			<h1 class="display-4">
+				<span th:text="${anime.name}"></span>
+			</h1>
 		</div>
 	</div>
+	<div class="modal-content">
 		<div class="container">
-<!-- 			<div class="row"> -->
-<!-- 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> -->
-<!-- 					<p class = "h4"> -->
-<!-- 						<strong>Titulo :</strong> <span th:text="${anime.name}"></span> -->
-<!-- 					</p> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
 			<div class="row">
 				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 					<!-- 					<figure class="figure"> -->
@@ -29,12 +29,12 @@
 					<!-- 					</figure> -->
 				</div>
 				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-					<p class = "h5">
+					<p class="h5 text-light">
 						<strong>Score :</strong> <span th:text="${anime.score}"></span>
 					</p>
 				</div>
 				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-					<p class ="h5">
+					<p class="h5 text-light">
 						<strong>Episodes :</strong> <span th:text="${anime.episodes}"></span>
 					</p>
 				</div>
@@ -43,41 +43,40 @@
 				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 					<div class="row ">
 						<p>
-							<span class="border-bottom border-secondary">	
-							<strong>Status :</strong> <span th:text="${anime.status}"></span> 
+							<span class="border-bottom border-secondary text-light"> <strong>Status
+									:</strong> <span th:text="${anime.status}"></span>
 							</span>
 						</p>
 					</div>
 					<div class="row">
 						<p>
-							<span class="border-bottom border-secondary">	
-							<strong>Studio :</strong> <span th:text="${anime.studio}"></span>
+							<span class="border-bottom border-secondary text-light"> <strong>Studio
+									:</strong> <span th:text="${anime.studio}"></span>
 							</span>
 						</p>
 					</div>
 					<div class="row">
 						<p class="text-left">
-							<span class="border-bottom border-secondary">	
-							<strong>Data lançamento : </strong> <span
-								th:text="${anime.datalanc}"></span>
+							<span class="border-bottom border-secondary text-light"> <strong>Data
+									lançamento : </strong> <span th:text="${anime.datalanc}"></span>
 							</span>
 						</p>
 					</div>
 				</div>
 				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-					<div class="card border-light mb-3" style="max-width: 18rem;">
-						<div class="card-header">Sinopse</div>
-						<div class="card-body">
+					<div class="card bg-dark mb-3" style="max-width: 40rem;">
+						<div class="card-header text-light">Sinopse</div>
+						<div class="card-body text-light">
 							<p class="card-text" th:text="${anime.synopsis}"></p>
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
+	</div>
 
-		<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-		<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
-		<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>
