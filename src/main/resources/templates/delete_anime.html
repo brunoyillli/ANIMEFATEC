@@ -16,7 +16,7 @@
 		<div th:if="${MSG}" class="alert alert-success" role="alert">
 			<p th:text="${MSG}" />
 		</div>
-		<form th:action="@{/delete}" th:object="${anime}" th:method="post">
+		<form th:action="@{/anime/delete}" th:object="${anime}" th:method="post">
 			<div class="form-group">
 				<label>ID : </label> <input type="text" class="form-control"
 					th:field="*{id}" readonly="readonly" />

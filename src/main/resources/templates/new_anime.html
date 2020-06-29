@@ -17,7 +17,7 @@
 		<div th:if="${MSG}" class="alert alert-success" role="alert">
 			<p th:text="${MSG}" />
 		</div>
-		<form th:action="@{/new}" th:object="${animeAtual}" th:method="post">
+		<form th:action="@{/anime/new}" th:object="${animeAtual}" th:method="post">
 			<div class="form-group">
 				<label>Nome: </label> <input type="text" class="form-control"
 					th:field="*{name}" />

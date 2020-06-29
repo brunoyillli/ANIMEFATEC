@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@RequestMapping("/anime")
 public class AnimeController {
 	@Autowired
 	private AnimeDao service;
@@ -43,7 +44,7 @@ public class AnimeController {
 		return mv;
 	}
 	
-	@GetMapping(path = "/anime/{id}")
+	@GetMapping(path = "/{id}")
 	public ModelAndView showAnimePage(@PathVariable(name="id")Long id) {
 		ModelAndView mv = new ModelAndView("anime");
 		Anime anime = service.get(id);
