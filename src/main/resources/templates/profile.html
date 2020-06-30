@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Anime</title>
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<!-- css local-->
+<link rel="stylesheet" type="text/css" href="../static/css/index.css"
+	th:href="@{/css/index.css}">
+</head>
+<body>
+	<div th:replace="~{fragments/header :: header}">Header</div>
+	<div class="jumbotron jumbotron-fluid p-3 mb-2 bg-dark text-white">
+		<div class="container">
+			<h1 class="display-4">
+				<span th:text="${anime.name}"></span>
+			</h1>
+		</div>
+	</div>
+	<div class="modal-content">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+					<!-- 					<figure class="figure"> -->
+					<img
+						src="https://camo.githubusercontent.com/e1186b2d105ecd4ee9e42433c734ea078ac6cf88/68747470733a2f2f7a7562652e696f2f66696c65732f706f722d756d612d626f612d63617573612f33363664616462316461323032353338616531333332396261333464393030362d696d6167652e706e67"
+						class="figure-img img-fluid z-depth-1" alt="..."
+						style="width: 250px">
+					<!-- 					</figure> -->
+				</div>
+				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+					<p class="h5 text-light">
+						<strong>Score :</strong> <span th:text="${anime.score}"></span>
+					</p>
+				</div>
+				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+					<p class="h5 text-light">
+						<strong>Episodes :</strong> <span th:text="${anime.episodes}"></span>
+					</p>
+				</div>
+			</div>
+			<div class="row content	">
+				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+					<div class="row ">
+						<p>
+							<span class="border-bottom border-secondary text-light"> <strong>Status
+									:</strong> <span th:text="${anime.status}"></span>
+							</span>
+						</p>
+					</div>
+					<div class="row">
+						<p>
+							<span class="border-bottom border-secondary text-light"> <strong>Studio
+									:</strong> <span th:text="${anime.studio}"></span>
+							</span>
+						</p>
+					</div>
+					<div class="row">
+						<p class="text-left">
+							<span class="border-bottom border-secondary text-light"> <strong>Data
+									lançamento : </strong> <span th:text="${anime.datalanc}"></span>
+							</span>
+						</p>
+					</div>
+				</div>
+				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+					<div class="card bg-dark mb-3" style="max-width: 40rem;">
+						<div class="card-header text-light">Sinopse</div>
+						<div class="card-body text-light">
+							<p class="card-text" th:text="${anime.synopsis}"></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	<div th:insert="~{fragments/footer :: footer}"></div>
+</body>
+</html>
