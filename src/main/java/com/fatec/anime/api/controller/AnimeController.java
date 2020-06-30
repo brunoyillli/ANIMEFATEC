@@ -96,32 +96,53 @@ public class AnimeController {
 
 	@GetMapping(path = "/animes")
 	public ModelAndView ListaAnime() {
+		Anime anime = new Anime();
 		ModelAndView mv = new ModelAndView("animes");
 		Iterable<Anime> lista = service.obterTodos();
 		mv.addObject("animeLista", lista);
+		mv.addObject("animeAtual", anime);
 		
 		return mv;
 	}
 	
 	@GetMapping(path = "/animes/{status}")
 	public ModelAndView ListaAnimeStatus(@PathVariable(name="status")String status) {
+		Anime anime = new Anime();
 		ModelAndView mv = new ModelAndView("animes");
 		Set<Anime> lista = service.findByStatus(status);
 		if(lista.size()>0) {
 			mv.addObject("animeLista", lista);
+			mv.addObject("animeAtual", anime);
 		}
 		return mv;
 	}
 	
 	@GetMapping(path = "/animes/top")
 	public ModelAndView TopListaAnime() {
+		Anime anime = new Anime();
 		ModelAndView mv = new ModelAndView("animes");
 		List<Anime> lista = service.getAnimesTop();
 		System.out.println(lista.size());
 		if(lista.size()>0) {
 			mv.addObject("animeLista", lista);
+			mv.addObject("animeAtual", anime);
 		}
 		return mv;
 	}
 
-} 	
+	@PostMapping(value = "/animes")
+	public ModelAndView processaAnimes(@ModelAttribute("animeAtual") Anime a,
+			@RequestParam("cmd")String cmd) {
+		ModelAndView mv = new ModelAndView("animes");
+		String msg = null;
+		if("pesquisar".equals(cmd)) {
+			Set<Anime> lista = service.searchByNome(a.getName());
+			String.format("Foram encontrados %d animes com o nome %s", lista.size(), a.getName());
+			if (lista.size() > 0) { 
+				mv.addObject("animeLista", lista);
+			}
+		}
+		mv.addObject("MSG", msg);
+		return mv;
+		}
+	}	

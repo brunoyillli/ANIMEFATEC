@@ -50,5 +50,9 @@ public class AnimeDao {
 		repository.deleteById(id);
 	}
 
+	public Set<Anime> searchByNome(String name) {
+		return repository.searchByNome(name);
+	}
+
 	
 }

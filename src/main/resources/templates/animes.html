@@ -5,19 +5,46 @@
 <title>Animes</title>
 <link rel="stylesheet"
 	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
-	
-	 <!-- css local-->
-    <link rel="stylesheet" type="text/css" href="../static/css/index.css" th:href="@{/css/index.css}">
+
+<!-- css local-->
+<link rel="stylesheet" type="text/css" href="../static/css/index.css"
+	th:href="@{/css/index.css}">
 </head>
 <body>
 	<div th:replace="~{fragments/header :: header}">Header</div>
 	<div class="jumbotron jumbotron-fluid p-3 mb-2 bg-dark text-white">
 		<div class="container">
-			<h1 class="display-4">Lista de Animes</h1>
+			<div class="row">
+				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+					<h1 class="display-4">Lista de Animes</h1>
+				</div>
+				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+					<form th:action="@{/anime/animes}" th:object="${animeAtual}"
+						th:method="post">
+						<div class="form-group">
+							<label>Nome: </label> <input type="text" class="form-control"
+								th:field="*{name}" />
+							<div class="form-group">
+								<button class="btn btn-primary" name="cmd" value="pesquisar">Pesquisar</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
 		</div>
+	</div>
 	</div>
 	<div class="modal-content">
 		<div class="container ">
+			<!-- 			<form th:action="@{/anime/animes}" th:object="${animeAtual}" th:method="post"> -->
+			<!-- 				<div class="form-group"> -->
+			<!-- 					<label>Nome: </label> <input type="text" class="form-control" -->
+			<!-- 						th:field="*{name}" /> -->
+			<!-- 					<div class="form-group"> -->
+			<!-- 						<button class="btn btn-primary" name="cmd" value="pesquisar">Pesquisar</button> -->
+			<!-- 					</div> -->
+			<!-- 				</div> -->
+			<!-- 			</form> -->
 			<table th:if="${animeLista}"
 				class="table table-striped table table-bordered table table-dark">
 				<thead>
@@ -38,8 +65,8 @@
 					</tr>
 				</tbody>
 			</table>
-			</div>
 		</div>
+	</div>
 	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 	<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
 	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
